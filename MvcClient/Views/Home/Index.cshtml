@@ -1,0 +1,57 @@
+﻿@model TenantInfo
+
+@if(Model != null)
+{
+    @if(!User.Identity.IsAuthenticated)
+    {
+        <a asp-controller="Home" asp-action="Authenticate" class="btn btn-primary">Login</a>
+    } else
+    {
+        <a asp-action="Logout" class="btn btn-secondary">Logout</a>
+    }
+
+    <p class="mt-4">Default Challenge Scheme: @ViewData["ChallengeScheme"]</p>
+    <p class="mt-4">Session Cookie Name: @ViewData["CookieName"]</p>
+
+    <h3 class="mt-4">TenantInfo Values</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width:25%">Property</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>@nameof(Model.Id)</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td>@nameof(Model.Identifier)</td>
+                <td>@Model.Identifier</td>
+            </tr>
+            <tr>
+                <td>@nameof(Model.Name)</td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td>@nameof(Model.ConnectionString)</td>
+                <td>@Model.ConnectionString</td>
+            </tr>
+        </tbody>
+    
+    </table>
+}
+else
+{
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">MultiTenanted client authentication with IdentityServer4</p>
+        <hr class="my-4">
+		<p>
+			Quieta Gallia Caesar, ut constituerat, in Italiam ad conventus agendos proficiscitur. Ibi cognoscit de Clodii caede [de] senatusque consulto certior factus, ut omnes iuniores Italiae coniurarent, delectum tota provincia habere instituit. Eae res in Galliam Transalpinam celeriter perferuntur. Addunt ipsi et adfingunt rumoribus Galli, quod res poscere videbatur, retineri urbano motu Caesarem neque in tantis dissensionibus ad exercitum venire posse. Hac impulsi occasione, qui iam ante se populi Romani imperio subiectos dolerent liberius atque audacius de bello consilia inire incipiunt. Indictis inter se principes Galliae conciliis silvestribus ac remotis locis queruntur de Acconis morte; posse hunc casum ad ipsos recidere demonstrant: miserantur communem Galliae fortunam: omnibus pollicitationibus ac praemiis deposcunt qui belli initium faciant et sui capitis periculo Galliam in libertatem vindicent. In primis rationem esse habendam dicunt, priusquam eorum clandestina consilia efferantur, ut Caesar ab exercitu intercludatur. Id esse facile, quod neque legiones audeant absente imperatore ex hibernis egredi, neque imperator sine praesidio ad legiones pervenire possit; postremo in acie praestare interfici quam non veterem belli gloriam libertatemque quam a maioribus acceperint recuperare.
+		</p>
+    </div>
+}

@@ -1,0 +1,12 @@
+﻿@model ExternalRegisterViewModel
+
+<form asp-action="ExternalRegister" asp-controller="Auth" method="post">
+	<input asp-for="ReturnUrl" type="hidden" />
+	<div>
+		<label asp-for="Username"></label>
+		<input asp-for="Username" />
+		<span asp-validation-for="Username"></span>
+	</div>
+		<button type="submit">Sign Up</button>
+	</div>
+</form>
